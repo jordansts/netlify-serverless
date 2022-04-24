@@ -10,8 +10,11 @@ exports.handler = async (event, context) => {
     // console.log(event)
     // console.log(context)
     return {
+        //important! this line allows other domains to send requests to our api avoiding cors error
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+        },
         statusCode: 200,
-        // body: JSON.stringify(person)
         body: JSON.stringify(items)
     }
 }
